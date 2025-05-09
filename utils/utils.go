@@ -21,5 +21,7 @@ func Ytdpretty(cyantasks [][]string) {
 		tableData = append(tableData, taskRow)
 	}
 
+	pterm.FgRed.Sprint(tableData[0][1])
+
 	pterm.DefaultTable.WithHasHeader().WithData(tableData).Render()
 }

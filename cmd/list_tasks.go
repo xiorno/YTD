@@ -18,9 +18,17 @@ var viewTaskCommand = &cobra.Command{
 	Long:  "Use this command followed by task value to include in todo list",
 	// Aliases: []string{"viewtasks", "newtask"},
 	SilenceUsage: true,
-	RunE: func(cmd *cobra.Command, args []string) error {
-		if err := viewTasks(); err != nil {
-			return err
+	// RunE: func(cmd *cobra.Command, args []string) error {
+	// 	if err := viewTasks(); err != nil {
+	// 		return err
+	// 	}
+	// 	return nil
+	// },
+	// workaround/solution to run outputing error twice
+	Run: func(cmd *cobra.Command, args []string) {
+		err := viewTasks()
+		if err != nil {
+			fmt.Println(err)
 		}
 		return nil
 	},
@@ -30,7 +38,7 @@ func viewTasks() error {
 	db, err := bolt.Open("bolt.db", 0600, &bolt.Options{ReadOnly: true})
 
 	if err != nil {
-		return fmt.Errorf("open bolt.db failed: first add a task")
+		return fmt.Errorf("bolt.db does not exist. Add a task and try again")
 	}
 
 	defer db.Close()
