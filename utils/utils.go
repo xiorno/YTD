@@ -3,7 +3,6 @@ package utils
 import (
 	"encoding/binary"
 
-	"github.com/bndr/gotabulate"
 	"github.com/pterm/pterm"
 )
 
@@ -13,17 +12,7 @@ func IntToByte(v uint64) []byte {
 	return b
 }
 
-func TabularizeOutput(allTaskRows [][]string) string {
-	// strings := []string{allTaskRows}
-	headers := []string{"ID", "Task", "TimeStamp"}
-	tabulate := gotabulate.Create(allTaskRows)
-	tabulate.SetHeaders(headers)
-	tabulate.SetMaxCellSize(55)
-	tabulate.SetWrapStrings(true)
-	tabulate.SetAlign("left")
-	return tabulate.Render("simple")
-}
-
+// ignore the name :(
 func Ytdpretty(cyantasks [][]string) {
 	tableData := pterm.TableData{
 		{"ID", "TaskName", "timestamp"},

@@ -49,13 +49,13 @@ func viewTasks() error {
 
 			keyStr := strconv.FormatUint(id, 10)
 
-			currentRowData := []string{
+			currentRow := []string{
 				keyStr,
 				string(pointerToTaskDetail.TaskValue),
 				humanize.Time(pointerToTaskDetail.CreatedAt),
 			}
 
-			allTaskRows = append(allTaskRows, currentRowData)
+			allTaskRows = append(allTaskRows, currentRow)
 			return nil
 		})
 
