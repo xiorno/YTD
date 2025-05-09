@@ -30,7 +30,6 @@ var viewTaskCommand = &cobra.Command{
 		if err != nil {
 			fmt.Println(err)
 		}
-		return nil
 	},
 }
 
