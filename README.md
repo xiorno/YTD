@@ -11,3 +11,11 @@
   <a href="https://github.com/pterm/pterm" >pterm</a> 
   <a href="https://github.com/dustin/go-humanize" >go-humanize</a>
 </div>
+<br>
+<p>The goal was to get famliar with Go and how cli tools are built, particularly with cobra</p>
+<p>while functional, this is no where near a complete todolist</p>
+
+features yet to be implemented:
+<ul>
+  <li>completed command</li>
+</ul>
