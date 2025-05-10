@@ -35,8 +35,8 @@ func usage() {
 }
 
 func availableCommands() {
-	pterm.Println(pterm.FgLightMagenta.Sprint("Avaialble commands"))
-	pterm.DefaultTable.WithData([][]string{
+	pterm.DefaultCenter.Println(pterm.FgLightMagenta.Sprint("Avaialble commands"))
+	s, _ := pterm.DefaultTable.WithData([][]string{
 		{pterm.FgYellow.Sprint("Add"), pterm.FgCyan.Sprint("add a task entry to todo-list")},
 
 		{pterm.FgYellow.Sprint("View"), pterm.FgCyan.Sprint("lists all entries in todolist")},
@@ -44,14 +44,13 @@ func availableCommands() {
 		{pterm.FgYellow.Sprint("Delete"), pterm.FgCyan.Sprint("remove a task from todolist")},
 
 		{pterm.FgYellow.Sprint("complete"), pterm.FgCyan.Sprint("mark a task when completed")},
-	}).Render()
-
-	pterm.Println()
+	}).Srender()
+	pterm.DefaultCenter.Println(s)
 }
 
 func exampleUsage() {
-	pterm.Println(pterm.FgLightMagenta.Sprint("Usage example"))
-	pterm.DefaultTable.WithData([][]string{
+	pterm.DefaultCenter.Println(pterm.FgLightMagenta.Sprint("Usage example"))
+	s, _ := pterm.DefaultTable.WithData([][]string{
 		{pterm.FgYellow.Sprint("Add"), pterm.FgCyan.Sprint("./ytd add \"task entry goes here\"")},
 
 		{pterm.FgYellow.Sprint("View"), pterm.FgCyan.Sprint("./ytd view")},
@@ -59,10 +58,9 @@ func exampleUsage() {
 		{pterm.FgYellow.Sprint("Delete 'taskid'"), pterm.FgCyan.Sprint("./ytd delete 69")},
 
 		{pterm.FgYellow.Sprint("complete 'taskid' "), pterm.FgCyan.Sprint("./yd complete 69")},
-	}).Render()
-
-	pterm.Println()
-	pterm.Println()
+	}).Srender()
+	pterm.DefaultCenter.WithCenterEachLineSeparately(true)
+	pterm.DefaultCenter.Println(s)
 
 }
 func Execute() {
